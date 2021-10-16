@@ -1,0 +1,61 @@
+on_actions = {
+
+	on_startup = {
+		effect = {
+			NPB = { country_event = { id = nizen.1 days = 120 hours = 3 } }
+			BRG = { country_event = { id = nizen.1 days = 121 hours = 6 } }
+		}
+	}
+
+	on_capitulation = {
+		effect = {
+			if = {
+				limit = { FROM = { OR = { tag = NPB tag = BRG } } OR = { tag = NPB tag = BRG } }
+				if = {
+					limit = { tag = NBP NSA = { has_war_with = BRG } }
+					OVERLORD = { country_event = { id = nizen.3 hours = 2 } }
+				}
+				FROM = {
+					annex_country = {
+						target = ROOT
+						transfer_troops = no
+					}
+				}
+				every_state = {
+					limit = { is_core_of = ROOT }
+					add_core_of = FROM
+				}
+			}
+			if = {
+				limit = { FROM = { has_country_flag = warring_successorate } ROOT = { has_country_flag = warring_successorate } }
+				add_to_variable = { successorate_legit_score = 1 }
+				FROM = {
+					drop_cosmetic_tag = yes
+					clr_country_flag = warring_successorate
+					set_variable = { successorate_legit_score = 0 }
+				}
+				white_peace = FROM
+				every_country = {
+					limit = { is_subject_of = FROM }
+					keep_current_politics = yes
+					ROOT = {
+						puppet = PREV
+					}
+				}
+				puppet = FROM
+				clr_country_flag = warring_successorate
+				set_country_flag = ruling_successorate
+			}
+		}
+	}
+
+	#on_monthly = {
+	#	effect = {
+	#		if = {
+	#			limit = { has_country_flag = warring_successorate has_war = no }
+	#			country_event = { id = nizen.8 hours = 1 random = 23 }
+	#		}
+	#	}
+	#}
+
+}

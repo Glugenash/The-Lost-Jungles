@@ -1,0 +1,9 @@
+add_namespace = dday_base
+
+country_event = {
+	id = dday_base.5
+	hidden = yes
+	is_triggered_only = yes
+	immediate = { reset_government = yes }
+
+	option = { }

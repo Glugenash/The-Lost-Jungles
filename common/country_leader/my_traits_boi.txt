@@ -1,0 +1,11 @@
+leader_traits = {
+
+	melthonian_nizen = {
+		random = no
+		high_command_cost_factor = -0.25
+		army_core_attack_factor = 0.1
+		army_core_defence_factor = 0.1
+		conscription = 0.005
+	}
+
+}

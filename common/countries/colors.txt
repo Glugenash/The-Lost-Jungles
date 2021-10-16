@@ -1,0 +1,32 @@
+ONB = {
+	color = rgb { 187 114 102 }
+	color_ui = rgb { 187 114 102 }
+}
+HML = {
+	color = rgb { 87 0 0 }
+	color_ui = rgb { 87 0 0 }
+}
+SRT = {
+	color = rgb { 82 0 126 }
+	color_ui = rgb { 82 0 126 }
+}
+NSA = {
+	color = rgb { 71 91 150 }
+	color_ui = rgb { 71 91 150 }
+}
+NPE = {
+	color = rgb { 169 149 145 }
+	color_ui = rgb { 169 149 145 }
+}
+NRR = {
+	color = rgb { 198 155 236 }
+	color_ui = rgb { 198 155 236 }
+}
+NRN = {
+	color = rgb { 156 108 190 }
+	color_ui = rgb { 156 108 190 }
+}
+NSS = {
+	color = rgb { 94 108 190 }
+	color_ui = rgb { 94 108 190 }
+}

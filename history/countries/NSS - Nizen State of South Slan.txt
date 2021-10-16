@@ -1,0 +1,43 @@
+﻿capital = 50
+
+oob = "BLANK_1936"
+
+add_to_variable = { successorate_legit_score = 1 }
+
+NSA = {
+	set_autonomy = {
+		target = NSS
+		autonomous_state = autonomy_puppet
+	}
+}
+
+# Starting tech
+set_technology = {
+	infantry_weapons = 1
+}
+
+set_convoys = 5
+
+set_politics = {
+	ruling_party = authoritarianism
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+set_popularities = {
+	authoritarianism = 50
+	democratic = 8
+	republicanism = 8
+	communism = 14
+	neutrality = 20
+}
+#create_country_leader = {
+#	
+#	name = "Jonas Lote"
+#	picture = "gfx//leaders//Africa//Portrait_Africa_Generic_2.dds"
+#	expire = "1965.1.1"
+#	ideology = centrism
+#	traits = {
+#		#
+#	}
+#}

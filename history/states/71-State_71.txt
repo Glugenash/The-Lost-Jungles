@@ -1,0 +1,19 @@
+state={
+	id=71
+	name="STATE_71"
+	provinces={
+		208 334 687 706 720 911 941 1065 1384 1388 1395 
+	}
+	history={
+		owner = FSI
+		buildings = {
+			infrastructure = 5
+            industrial_complex = 1
+            arms_factory = 1
+		}
+		add_core_of = FSI
+	}
+	manpower=350000
+	state_category = town
+	buildings_max_level_factor=1.000
+}

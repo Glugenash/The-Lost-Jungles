@@ -1,0 +1,19 @@
+state={
+	id=78
+	name="STATE_78"
+	provinces={
+		7 98 176 405 410 510 628 669 831 986 995 1077 1093 1118 1133 1153 1189 1218 
+	}
+	history={
+		owner = RRB
+		buildings = {
+			infrastructure = 5
+            industrial_complex = 1
+            arms_factory = 1
+		}
+		add_core_of = RRB
+	}
+	manpower=350000
+	state_category = town
+	buildings_max_level_factor=1.000
+}

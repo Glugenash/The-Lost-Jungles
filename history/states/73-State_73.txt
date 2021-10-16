@@ -1,0 +1,19 @@
+state={
+	id=73
+	name="STATE_73"
+	provinces={
+		11 197 246 318 427 796 896 1017 1157 1401 1405 
+	}
+	history={
+		owner = ONB
+		buildings = {
+			infrastructure = 5
+            industrial_complex = 1
+            arms_factory = 1
+		}
+		add_core_of = ONB
+	}
+	manpower=350000
+	state_category = town
+	buildings_max_level_factor=1.000
+}

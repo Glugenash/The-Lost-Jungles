@@ -1,0 +1,20 @@
+state={
+	id=89
+	name="STATE_89"
+	provinces={
+		66 238 244 394 482 825 1383 1389 
+	}
+	history={
+		owner = ELK
+		buildings = {
+			infrastructure = 5
+            industrial_complex = 1
+            arms_factory = 1
+		}
+		add_core_of = ELK
+		add_claim_by = FRB
+	}
+	manpower=350000
+	state_category = town
+	buildings_max_level_factor=1.000
+}

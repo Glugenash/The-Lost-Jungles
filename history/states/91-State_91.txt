@@ -1,0 +1,19 @@
+state={
+	id=91
+	name="STATE_91"
+	provinces={
+		194 311 711 815 852 1369 1373 
+	}
+	history={
+		owner = FRB
+		buildings = {
+			infrastructure = 5
+            industrial_complex = 1
+            arms_factory = 1
+		}
+		add_core_of = FRB
+	}
+	manpower=350000
+	state_category = town
+	buildings_max_level_factor=1.000
+}

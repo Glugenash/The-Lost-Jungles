@@ -1,0 +1,39 @@
+add_namespace = brell
+
+country_event = { #GSI taken out, now what?
+	id = brell.1
+	title = brell.1.t
+	desc = brell.1.d
+	
+	fire_only_once = yes
+
+	trigger = {
+		tag = FRB
+		GSI = {
+			OR = {
+				exists = no
+				is_subject = yes
+			}
+		}
+	}
+
+	option = { #demand subjugation of all others
+		name = brell.1.a
+		every_other_country = {
+			limit = { NOT = { is_subject_of = ROOT } OR = { tag = GSI tag = WSH tag = MNS } }
+			country_event = { id = generic.20 hours = 3 }
+		}
+	}
+	option = { #declare war on them all
+		name = brell.1.b
+		every_other_country = {
+			limit = { NOT = { is_subject_of = ROOT } OR = { tag = GSI tag = WSH tag = MNS } }
+			ROOT = {
+				declare_war_on = {
+					target = PREV
+					type = annex_everything
+				}
+			}
+		}
+	}
+}

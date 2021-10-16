@@ -1,0 +1,19 @@
+state={
+	id=66
+	name="STATE_66"
+	provinces={
+		127 304 373 464 552 581 688 701 843 1033 1167 1391 
+	}
+	history={
+		owner = SRT
+		buildings = {
+			infrastructure = 5
+            industrial_complex = 1
+            arms_factory = 1
+		}
+		add_core_of = SRT
+	}
+	manpower=350000
+	state_category = town
+	buildings_max_level_factor=1.000
+}

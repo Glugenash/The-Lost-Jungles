@@ -1,0 +1,20 @@
+state={
+	id=52
+	name="STATE_52"
+	provinces={
+		89 445 497 536 579 595 683 704 822 826 865 1063 
+	}
+	history={
+		owner = NPB
+		buildings = {
+			infrastructure = 5
+            		industrial_complex = 1
+            		arms_factory = 1
+		}
+		add_core_of = NPB
+		add_claim_by = BRG
+	}
+	manpower=350000
+	state_category = town
+	buildings_max_level_factor=1.000
+}

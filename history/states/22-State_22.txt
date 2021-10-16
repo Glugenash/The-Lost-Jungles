@@ -1,0 +1,19 @@
+state={
+	id=22
+	name="STATE_22"
+	provinces={
+		28 110 130 356 423 424 506 599 948 1076 1125 1134 1208 1211 
+	}
+	history={
+		owner = NPE
+		buildings = {
+			infrastructure = 5
+            industrial_complex = 1
+            arms_factory = 1
+		}
+		add_core_of = NPE
+	}
+	manpower=350000
+	state_category = town
+	buildings_max_level_factor=1.000
+}

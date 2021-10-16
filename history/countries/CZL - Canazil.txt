@@ -1,0 +1,50 @@
+﻿capital = 65
+
+oob = "CZL_1936"
+
+# Starting tech
+set_technology = {
+	infantry_weapons = 1
+}
+
+set_war_support = 0.9
+
+add_ai_strategy = {
+	type = invade
+	id = MEL
+	value = 100
+}
+
+add_ideas = {
+	limited_conscription
+	partial_economic_mobilisation
+}
+
+declare_war_on = {
+	target = MEL
+	type = annex_everything
+}
+
+set_convoys = 5
+
+set_politics = {
+	ruling_party = fascism
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+set_popularities = {
+	fascism = 70
+	neutrality = 5
+	authoritarianism = 20
+	republicanism = 5
+}
+create_country_leader = {
+	name = "Derg Mthauli"
+	picture = "gfx/leaders/SAU/Portrait_Arabia_Generic_1.dds"
+	expire = "1965.1.1"
+	ideology = neo_imperialism
+	traits = {
+		
+	}
+}

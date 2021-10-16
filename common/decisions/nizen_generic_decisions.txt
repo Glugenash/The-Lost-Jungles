@@ -1,0 +1,430 @@
+nizen_successorate_legitimacy_category = {
+	
+	nizen_pledge_support_successorate = {
+
+		icon = generic_political_discourse
+
+		cost = 25
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				date < 1939.1.1
+			}
+		}
+
+		available = {
+			NOT = {
+				has_country_flag = preparing_counter_successorate
+			}
+		}
+
+		days_re_enable = 90
+
+		complete_effect = {
+			OVERLORD = {
+				add_to_variable = { successorate_legit_score = 1 }
+			}
+		}
+
+	}
+
+	nizen_pledge_support_successorate_industry = {
+
+		icon = generic_construction
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				date < 1939.1.1
+			}
+		}
+
+		available = {
+			NOT = {
+				has_country_flag = preparing_counter_successorate
+			}
+		}
+
+		days_remove = 100
+
+		modifier = {
+			consumer_goods_factor = 0.1
+			political_power_cost = -0.2
+		}
+
+		days_re_enable = 100
+
+		complete_effect = {
+			OVERLORD = {
+				add_to_variable = { successorate_legit_score = 1 }
+				add_offsite_building = { type = industrial_complex level = 1 }
+			}
+		}
+
+		remove_effect = {
+			OVERLORD = {
+				add_offsite_building = { type = industrial_complex level = -1 }
+			}
+		}
+
+	}
+
+	nizen_prepare_claim_successorate = {
+
+		icon = generic_civil_support
+
+		cost = 50
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				date < 1939.1.1
+			}
+		}
+
+		visible = {
+			OR = {
+				tag = NPB
+				tag = NPE
+				tag = NRN
+				tag = NRR
+				tag = NSA
+				tag = NSS
+			}
+		}
+
+		available = {
+			NOT = {
+				has_country_flag = preparing_counter_successorate
+			}
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			set_country_flag = preparing_counter_successorate
+			add_to_variable = { successorate_legit_score = 1 }
+		}
+
+	}
+
+	nizen_establish_rival_successorate = {
+
+		icon = generic_prepare_civil_war
+
+		cost = 50
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				date < 1939.1.1
+			}
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = rival_current_successorate_equal_legitimacy
+				if = {
+					limit = { is_subject_of = NPB }
+					OR = {
+						check_variable = { successorate_legit_score = NPB.successorate_legit_score }
+						check_variable = { successorate_legit_score > NPB.successorate_legit_score }
+					}
+				}
+				if = {
+					limit = { is_subject_of = NPE }
+					OR = {
+						check_variable = { successorate_legit_score = NPE.successorate_legit_score }
+						check_variable = { successorate_legit_score > NPE.successorate_legit_score }
+					}
+				}
+				if = {
+					limit = { is_subject_of = NRN }
+					OR = {
+						check_variable = { successorate_legit_score = NRN.successorate_legit_score }
+						check_variable = { successorate_legit_score > NRN.successorate_legit_score }
+					}
+				}
+				if = {
+					limit = { is_subject_of = NRR }
+					OR = {
+						check_variable = { successorate_legit_score = NRR.successorate_legit_score }
+						check_variable = { successorate_legit_score > NRR.successorate_legit_score }
+					}
+				}
+				if = {
+					limit = { is_subject_of = NSA }
+					OR = {
+						check_variable = { successorate_legit_score = NSA.successorate_legit_score }
+						check_variable = { successorate_legit_score > NSA.successorate_legit_score }
+					}
+				}
+				if = {
+					limit = { is_subject_of = NSS }
+					OR = {
+						check_variable = { successorate_legit_score = NSS.successorate_legit_score }
+						check_variable = { successorate_legit_score > NSS.successorate_legit_score }
+					}
+				}
+			}
+		}
+
+		visible = {
+			has_country_flag = preparing_counter_successorate
+		}
+
+		fire_only_once = yes
+
+		days_remove = 14
+
+		complete_effect = {
+			clr_country_flag = preparing_counter_successorate
+			OVERLORD = {
+				set_autonomy = {
+					target = ROOT
+					autonomous_state = autonomy_free
+				}
+				every_other_country = {
+					limit = { is_subject_of = PREV }
+					country_event = nizen.4
+				}
+				country_event = { id = nizen.7 days = 14 }
+			}
+			if = {
+				limit = { is_in_faction_with = OVERLORD }
+				leave_faction = yes
+			}
+		}
+
+	}
+
+	nizen_look_past_glory = {
+
+		icon = generic_civil_support
+
+		cost = 50
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				date < 1939.1.1
+			}
+		}
+
+		days_re_enable = 120
+
+		complete_effect = {
+			add_to_variable = { successorate_legit_score = 1 }
+		}
+
+	}
+
+	nizen_pledge_support_enemy_successorate = {
+
+		icon = generic_political_discourse
+
+		cost = 25
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				date < 1939.1.1
+			}
+		}
+
+		visible = {
+			NOT = {
+				has_country_flag = preparing_counter_successorate
+			}
+		}
+
+		target_trigger = {
+			FROM = {
+				has_country_flag = preparing_counter_successorate
+			}
+		}
+
+		days_re_enable = 90
+
+		complete_effect = {
+			FROM = {
+				add_to_variable = { successorate_legit_score = 1 }
+			}
+		}
+
+	}
+
+	nizen_ask_support_claim_successorate = {
+
+		icon = generic_political_discourse
+
+		cost = 25
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				date < 1939.1.1
+			}
+		}
+
+		visible = {
+			has_country_flag = preparing_counter_successorate
+		}
+
+		target_trigger = {
+			FROM = {
+				is_subject = yes
+				OVERLORD = {
+					is_ally_with = ROOT
+				}
+				NOT = {
+					has_country_flag = preparing_counter_successorate
+				}
+			}
+		}
+
+		days_re_enable = 90
+
+		complete_effect = {
+			FROM = {
+				country_event = { id = nizen.9 hours = 1 }
+			}
+		}
+
+	}
+
+	nizen_ask_reunite_slani = {
+
+		icon = generic_political_discourse
+
+		visible = {
+			OR = {
+				tag = NRN
+				tag = NSS
+			}
+			country_exists = NRN
+			country_exists = NSS
+			NRN = {
+				is_subject = yes
+				OVERLORD = {
+					is_ally_with = NSS
+				}
+			}
+			NSS = {
+				is_subject = yes
+				OVERLORD = {
+					is_ally_with = NRN
+				}
+			}
+			NOT = {
+				OR = {
+					NSS = { is_subject_of = ROOT }
+					NRN = { is_subject_of = ROOT }
+				}
+			}
+		}
+
+		days_re_enable = 365
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		cost = 50
+
+		complete_effect = {
+			OVERLORD = {
+				country_event = { id = nizen.10 hours = 2 }
+			}
+		}
+
+	}
+
+	nizen_reunite_slani = {
+
+		icon = generic_form_nation
+
+		visible = {
+			OR = {
+				tag = NSS
+				tag = NRN
+			}
+		}
+
+		available = {
+			OR = {
+				AND = {
+					tag = NSS
+					NRN = { is_subject_of = NSS }
+				}
+				AND = {
+					tag = NRN
+					NSS = { is_subject_of = NRN }
+				}
+				custom_trigger_tooltip = {
+					tooltip = controls_slani_states
+					OR = {
+						tag = NRN
+						tag = NSS
+					}
+					all_of_scopes = {
+						array = NRN.core_states
+						OR = {
+							is_owned_by = ROOT
+							is_controlled_by = ROOT
+						}
+					}
+					all_of_scopes = {
+						array = NSS.core_states
+						OR = {
+							is_owned_by = ROOT
+							is_controlled_by = ROOT
+						}
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					NRN = { is_subject_of = ROOT }
+				}
+				annex_country = {
+					target = NRN
+					transfer_troops = yes
+				}
+			}
+			if = {
+				limit = {
+					NSS = { is_subject_of = ROOT }
+				}
+				annex_country = {
+					target = NSS
+					transfer_troops = yes
+				}
+			}
+			every_state = {
+				limit = { OR = { is_core_of = NSS is_core_of = NRN } NOT = { is_core_of = ROOT } }
+				add_core_of = ROOT
+			}
+			set_cosmetic_tag = reunited_slani
+		}
+
+	}
+
+}

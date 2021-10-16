@@ -1,0 +1,354 @@
+add_namespace = nizen
+
+country_event = { #Bregen border conflicts
+	id = nizen.1
+	title = nizen.1.t
+	desc = nizen.1.d
+	
+	is_triggered_only = yes
+
+	trigger = {
+		has_war = no
+	}
+
+	option = { #finally, a worthy opponent
+		name = nizen.1.a
+		if = {
+			limit = { tag = BRG }
+			NPB = {
+				declare_war_on = {
+					target = BRG
+					type = annex_everything
+				}
+			}
+			else = {
+				OVERLORD = { country_event = { id = nizen.2 hours = 2 } }
+				declare_war_on = {
+					target = BRG
+					type = annex_everything
+				}
+			}
+		}
+	}
+	option = { #a few feet of desert is not worth war
+		name = nizen.1.b
+		add_stability = 0.01
+	}
+}
+
+country_event = { #whether to join in the Bregen war or no
+	id = nizen.2
+	title = nizen.2.t
+	desc = nizen.2.d
+	
+	is_triggered_only = yes
+
+	option = { #we must protect our protectorate
+		name = nizen.2.a
+		declare_war_on = {
+			target = BRG
+			type = annex_everything
+		}
+	}
+	option = { #it is bregen matters and we are too busy
+		name = nizen.2.b
+		add_stability = 0.02
+		NPB = {
+			add_opinion_modifier = {
+				target = NSA
+				modifier = protest_action_light
+			}
+		}
+		diplomatic_relation = {
+			country = BRG
+			relation = non_aggression_pact
+			active = yes
+		}
+	}
+}
+
+country_event = { #peace with bregenland?
+	id = nizen.3
+	title = nizen.3.t
+	desc = nizen.3.d
+	
+	is_triggered_only = yes
+
+	option = { #They've won the war
+		name = nizen.3.a
+		every_country = {
+			limit = { OR = { tag = ROOT is_subject_of = ROOT } }
+			white_peace = BRG
+		}
+	}
+	option = { #no, we must free our bergen subjects!
+		name = nizen.3.b
+		add_war_support = 0.02
+	}
+}
+
+country_event = { #join the new successorate claim?
+	id = nizen.4
+	title = nizen.4.t
+	desc = nizen.4.d
+	
+	is_triggered_only = yes
+
+	option = { #We will support their claim
+		name = nizen.4.a
+		ai_chance = {
+			factor = 1
+			modifier = {
+				add = 1
+				OVERLORD = {
+					check_variable = { successorate_legit_score < FROM.successorate_legit_score }
+				}
+			}
+			modifier = {
+				factor = 0
+				tag = NPB
+				has_war_with = BRG
+			}
+		}
+		hidden_effect = {
+			keep_current_politics = yes
+		}
+		if = {
+			limit = { is_in_faction_with = OVERLORD }
+			leave_faction = yes
+		}
+		FROM = {
+			puppet = ROOT
+			country_event = { id = nizen.5 hours = 1 random = 5 }
+		}
+	}
+	option = { #no
+		name = nizen.4.b
+		ai_chance = {
+			factor = 2
+			modifier = {
+				has_opinion = {
+					target = FROM
+					value > 30
+				}
+				add = -1
+			}
+		}
+		add_war_support = 0.05
+		FROM = {
+			country_event = { id = nizen.6 hours = 1 random = 5 }
+		}
+	}
+}
+
+country_event = { #FROM.GetLeader Endorses our Successorate
+	id = nizen.5
+	title = nizen.5.t
+	desc = nizen.5.d
+	
+	is_triggered_only = yes
+
+	option = { #sucks for them
+		name = nizen.5.a
+		add_stability = 0.01
+	}
+}
+
+country_event = { #FROM.GetLeader Refuses to Endorse our Successorate
+	id = nizen.6
+	title = nizen.6.t
+	desc = nizen.6.d
+	
+	is_triggered_only = yes
+
+	option = { #sucks for them
+		name = nizen.6.a
+		add_stability = -0.01
+	}
+}
+
+country_event = { #FROM.GetLeader establishes rival successorate
+	id = nizen.7
+	title = nizen.7.t
+	desc = nizen.7.d
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			#event thing that adds a cosmetic tag to from changing them into a successorate
+			FROM = {
+				if = {
+					limit = { tag = NPB }
+					set_cosmetic_tag = NPB_successorate
+				}
+				if = {
+					limit = { tag = NPE }
+					set_cosmetic_tag = NPE_successorate
+				}
+				if = {
+					limit = { tag = NRR }
+					set_cosmetic_tag = NRR_successorate
+				}
+				if = {
+					limit = { tag = NSA }
+					set_cosmetic_tag = NSA_successorate
+				}
+				if = {
+					limit = { OR = { tag = NRN tag = NSS } }
+					set_cosmetic_tag = slani_successorate
+				}
+			}
+		}
+	}
+
+	option = { #crush the traitor!
+		name = nizen.7.a
+		declare_war_on = {
+			target = FROM
+			type = puppet_wargoal_focus
+		}
+		clr_country_flag = ruling_successorate
+		set_country_flag = warring_successorate
+		hidden_effect = {
+			FROM = {
+				set_country_flag = warring_successorate
+			}
+			every_country = {
+				limit = {
+					has_country_flag = warring_successorate
+					NOT = { has_war_with = FROM }
+				}
+				declare_war_on = {
+					target = FROM
+					type = puppet_wargoal_focus
+				}
+			}
+		}
+	}
+}
+
+#country_event = { #Going from warring to ruling
+#	id = nizen.8
+#	title = nizen.8.t
+#	desc = nizen.8.d
+#
+#	is_triggered_only = yes
+#
+#	option = { #the true successorate has succeeded
+#		name = nizen.8.a
+#		clr_country_flag = warring_successorate
+#		set_country_flag = ruling_successorate
+#		hidden_effect = {
+#			#every country that's got the cosmetic tag for being a successorate that's not you loses it
+#			every_other_country = {
+#				limit = { has_country_flag = warring_successorate }
+#				clr_country_flag = warring_successorate
+#				drop_cosmetic_tag = yes
+#			}
+#		}
+#	}
+#}
+
+country_event = { #FROM asks for our support
+	id = nizen.9
+	title = nizen.9.t
+	desc = nizen.9.d
+
+	is_triggered_only = yes
+
+	option = { #Sure
+		name = nizen.9.a
+		FROM = {
+			country_event = { id = nizen.5 hours = 2 }
+			add_to_variable = { successorate_legit_score = 1 }
+		}
+	}
+	option = { #Nah
+		name = nizen.9.b
+		FROM = {
+			country_event = { id = nizen.6 hours = 2 }
+		}
+	}
+}
+
+country_event = { #FROM wants to reunite with the other Slani
+	id = nizen.10
+	title = nizen.10.t
+	desc = nizen.10.d
+
+	is_triggered_only = yes
+
+	option = { #Sure
+		name = nizen.10.a
+		FROM = {
+			country_event = { id = nizen.11 hours = 2 }
+		}
+	}
+	option = { #Nah
+		name = nizen.10.b
+		FROM = {
+			country_event = { id = nizen.12 hours = 2 }
+		}
+	}
+}
+
+country_event = { #We can annex the other Slani
+	id = nizen.11
+	title = nizen.11.t
+	desc = nizen.11.d
+
+	is_triggered_only = yes
+
+	option = { #Epic
+		name = nizen.11.a
+		custom_effect_tooltip = slani_legitimacy_addition
+		if = {
+			limit = { tag = NRN }
+			annex_country = {
+				target = NSS
+				transfer_troops = yes
+			}
+			every_state = {
+				limit = { is_core_of = NSS }
+				add_core_of = NRN
+			}
+			set_temp_variable = { adding_legitimacy_temp = NSS.successorate_legit_score }
+			add_to_variable = { successorate_legit_score = adding_legitimacy_temp }
+		}
+		if = {
+			limit = { tag = NSS }
+			annex_country = {
+				target = NRN
+				transfer_troops = yes
+			}
+			every_state = {
+				limit = { is_core_of = NRN }
+				add_core_of = NSS
+			}
+			set_temp_variable = { adding_legitimacy_temp = NRN.successorate_legit_score }
+			add_to_variable = { successorate_legit_score = adding_legitimacy_temp }
+		}
+		set_cosmetic_tag = reunited_slani
+	}
+}
+
+country_event = { #We cannot annex the other Slani
+	id = nizen.12
+	title = nizen.12.t
+	desc = nizen.12.d
+
+	is_triggered_only = yes
+
+	option = { #dassad
+		name = nizen.12.a
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.02
+		}
+		add_opinion_modifier = {
+			target = FROM
+			modifier = protest_action
+		}
+	}
+}

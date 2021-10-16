@@ -1,0 +1,21 @@
+state={
+	id=93
+	name="STATE_93"
+	provinces={
+		162 518 653 890 1172 1392 
+	}
+	history={
+		owner = GSI
+		buildings = {
+			infrastructure = 5
+            industrial_complex = 1
+            arms_factory = 1
+		}
+		add_core_of = GSI
+		add_claim_by = FBR
+		add_claim_by = ELK
+	}
+	manpower=350000
+	state_category = town
+	buildings_max_level_factor=1.000
+}

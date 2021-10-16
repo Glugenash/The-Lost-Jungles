@@ -1,0 +1,19 @@
+state={
+	id=39
+	name="STATE_39"
+	provinces={
+		65 286 344 387 526 609 956 1003 1048 1170 
+	}
+	history={
+		owner = NRN
+		buildings = {
+			infrastructure = 5
+            industrial_complex = 1
+            arms_factory = 1
+		}
+		add_core_of = NRN
+	}
+	manpower=350000
+	state_category = town
+	buildings_max_level_factor=1.000
+}

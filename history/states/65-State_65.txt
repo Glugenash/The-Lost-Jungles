@@ -1,0 +1,19 @@
+state={
+	id=65
+	name="STATE_65"
+	provinces={
+		179 333 342 348 853 958 961 992 1168 1370 
+	}
+	history={
+		owner = CZL
+		buildings = {
+			infrastructure = 5
+            		industrial_complex = 1
+            		arms_factory = 1
+		}
+		add_core_of = CZL
+	}
+	manpower=350000
+	state_category = town
+	buildings_max_level_factor=1.000
+}

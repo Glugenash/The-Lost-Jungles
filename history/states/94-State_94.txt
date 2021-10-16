@@ -1,0 +1,19 @@
+state={
+	id=94
+	name="STATE_94"
+	provinces={
+		13 170 364 718 750 967 1079 1104 1351 1356 
+	}
+	history={
+		owner = ERM
+		buildings = {
+			infrastructure = 5
+            industrial_complex = 1
+            arms_factory = 1
+		}
+		add_core_of = ERM
+	}
+	manpower=350000
+	state_category = town
+	buildings_max_level_factor=1.000
+}

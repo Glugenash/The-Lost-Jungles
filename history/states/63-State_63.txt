@@ -1,0 +1,20 @@
+state={
+	id=63
+	name="STATE_63"
+	provinces={
+		20 47 68 128 160 267 604 651 742 834 980 1039 1080 1108 1179 1226 1372 1387 
+	}
+	history={
+		owner = BRG
+		buildings = {
+			infrastructure = 5
+            industrial_complex = 1
+            arms_factory = 1
+		}
+		add_core_of = BRG
+		add_claim_by = NPB
+	}
+	manpower=350000
+	state_category = town
+	buildings_max_level_factor=1.000
+}

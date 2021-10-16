@@ -1,0 +1,52 @@
+nizen_successorate_legitimacy_category = {
+
+	visible_when_empty = yes
+	
+	visible = {
+		if = {
+  			limit = {
+    			is_subject = yes
+  			}
+  			OVERLORD = {
+  				OR = {
+					has_country_flag = ruling_successorate
+					has_country_flag = warring_successorate
+				}
+  			}
+  			else = {
+    			always = no
+  			}
+		}
+		#is_subject = yes
+		#OVERLORD = {
+		#	OR = {
+		#		has_country_flag = ruling_successorate
+		#		has_country_flag = warring_successorate
+		#	}
+		#}
+		#OR = {
+		#	has_government = fascism
+		#	has_government = democratic
+		#	has_government = authoritarianism
+		#}
+	}
+
+}
+
+nizen_successorate_legitimacy_successorate_category = {
+
+	visible_when_empty = yes
+	
+	visible = {
+		OR = {
+			has_country_flag = ruling_successorate
+			has_country_flag = warring_successorate
+		}
+		OR = {
+			has_government = fascism
+			has_government = democratic
+			has_government = authoritarianism
+		}
+	}
+
+}

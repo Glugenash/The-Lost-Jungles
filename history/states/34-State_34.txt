@@ -1,0 +1,19 @@
+state={
+	id=34
+	name="STATE_34"
+	provinces={
+		60 182 219 259 292 363 440 441 446 501 537 820 930 946 1011 1092 1209 1287 1298 
+	}
+	history={
+		owner = NSA
+		buildings = {
+			infrastructure = 5
+            industrial_complex = 1
+            arms_factory = 1
+		}
+		add_core_of = NSA
+	}
+	manpower=350000
+	state_category = town
+	buildings_max_level_factor=1.000
+}

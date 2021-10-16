@@ -1,0 +1,78 @@
+defined_text = { # Country
+	name = GetOverlordLegitimacy
+	text = { 
+		trigger = {
+			OVERLORD = {
+				tag = NPB
+			}
+		}
+		localization_key = "[?NPB.successorate_legit_score]"
+	}
+	text = { 
+		trigger = {
+			OVERLORD = {
+				tag = NPE
+			}
+		}
+		localization_key = "[?NPE.successorate_legit_score]"
+	}
+	text = { 
+		trigger = {
+			OVERLORD = {
+				tag = NRN
+			}
+		}
+		localization_key = "[?NRN.successorate_legit_score]"
+	}
+	text = { 
+		trigger = {
+			OVERLORD = {
+				tag = NRR
+			}
+		}
+		localization_key = "[?NRR.successorate_legit_score]"
+	}
+	text = { 
+		trigger = {
+			OVERLORD = {
+				tag = NSA
+			}
+		}
+		localization_key = "[?NSA.successorate_legit_score]"
+	}
+	text = { 
+		trigger = {
+			OVERLORD = {
+				tag = NSS
+			}
+		}
+		localization_key = "[?NSS.successorate_legit_score]"
+	}
+}
+defined_text = { # Country
+	name = GetComparedLegitimacy
+	text = { 
+		trigger = {
+			OVERLORD = {
+				check_variable = { successorate_legit_score > PREV.successorate_legit_score }
+			}
+		}
+		localization_key = low_nizen_legitimacy
+	}
+	text = { 
+		trigger = {
+			OVERLORD = {
+				check_variable = { successorate_legit_score = PREV.successorate_legit_score }
+			}
+		}
+		localization_key = equal_nizen_legitimacy
+	}
+	text = { 
+		trigger = {
+			OVERLORD = {
+				check_variable = { successorate_legit_score < PREV.successorate_legit_score }
+			}
+		}
+		localization_key = high_nizen_legitimacy
+	}
+}

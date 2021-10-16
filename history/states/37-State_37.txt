@@ -1,0 +1,19 @@
+state={
+	id=37
+	name="STATE_37"
+	provinces={
+		152 165 195 199 264 338 359 444 472 474 577 627 676 790 828 974 1166 1171 1283 1289 1295 1309 1321 1324 
+	}
+	history={
+		owner = GER
+		buildings = {
+			infrastructure = 5
+            industrial_complex = 1
+            arms_factory = 1
+		}
+		add_core_of = GER
+	}
+	manpower=350000
+	state_category = town
+	buildings_max_level_factor=1.000
+}
